@@ -33,8 +33,27 @@ public:
 			temp->setLink(LINKS::next, _new);
 		}
 	}
-	void erase(T) {
-
+	void erase(T dato) {
+		CSimpleNode<T> * _new = new CSimpleNode<T>(dato);
+		CNode<T> *aux=this->proot;
+		CNode<T> *temp=this->proot->getLink(LINKS::next);
+		
+		int cont=0;
+		
+		if (this->proot == 0) {
+			this->proot = _new;
+		} else{
+			while(temp){
+				if(temp->getData()==dato){
+					CNode<T> * aux_node=temp;
+					aux->getLink(LINKS::next)==temp->getLink(LINKS::next);
+					delete aux_node;
+					cont++;
+					}
+					aux= aux->getLink(LINKS::next);
+					temp= temp->getLink(LINKS::next);
+				}
+			}
 	}
 	bool search(T) {
 
