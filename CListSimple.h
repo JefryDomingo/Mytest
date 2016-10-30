@@ -70,10 +70,28 @@ public:
 
 
 	bool search(T) {
+		CNode<T>* p=this->proot;
+		do{
+			if(p->getData()==data){
+				cout<<true<<endl;;
+				return true;
+				}
+			p=p->getLink(LINKS::next);}
+			while(p->getLink(LINKS::next)!=NULL);
+			cout<<"Here papu: "<<p->getData()<<endl;
+	cout<<false<<endl;
+	return false;
+
 
 	}
 	void clear() {
-
+	CNode<T> *temp = this->proot;
+    while (temp){
+        this->proot = temp->getLink(LINKS::next);
+        delete temp;
+        temp = this->proot;	
+    }
+    //Violacion de segmento ('core'generado)-->why?
 	}
 
 	void show(std::ostream& out) {
