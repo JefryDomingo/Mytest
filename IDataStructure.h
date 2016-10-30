@@ -10,8 +10,9 @@
 
 #include <iostream>
 #include "CNode.h"
+#include "IShow.h"
 template<class T>
-class IDataStructure {
+class IDataStructure: public IShow<T>{
 protected:
 	IDataStructure() {
 	}
