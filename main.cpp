@@ -80,6 +80,13 @@ int main() {
 	mySimpleList.insert(500);
 	mySimpleList.erase(400);
 	mySimpleList.show(std::cout);
+	CQueue<int> myQueue;
+	myQueue.insert(100);
+	myQueue.insert(200);
+	myQueue.insert(300);
+	myQueue.insert(400);
+	myQueue.insert(500);
+	myQueue.show(std::cout);
 	std::cout << std::endl;
 	/*
 	 * Pero la verdadera tarea es que las siguientes de lineas de codigo

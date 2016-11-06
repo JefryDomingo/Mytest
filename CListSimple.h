@@ -73,13 +73,10 @@ public:
 		CNode<T>* p=this->proot;
 		do{
 			if(p->getData()==data){
-				cout<<true<<endl;;
 				return true;
 				}
 			p=p->getLink(LINKS::next);}
 			while(p->getLink(LINKS::next)!=NULL);
-			cout<<"Here papu: "<<p->getData()<<endl;
-	cout<<false<<endl;
 	return false;
 
 
