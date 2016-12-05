@@ -73,21 +73,48 @@ int main() {
 	 * tipos de datos.
 	 */
 	CListSimple<int> mySimpleList;
+	mySimpleList.insert(400);
+	mySimpleList.insert(500);
 	mySimpleList.insert(100);
 	mySimpleList.insert(200);
 	mySimpleList.insert(300); // observar esto !!!!
 	mySimpleList.insert(400);
 	mySimpleList.insert(500);
+	mySimpleList.insert(400);
+	mySimpleList.insert(500);
+	mySimpleList.insert(400);
+	mySimpleList.insert(400);
+	mySimpleList.show(std::cout);
 	mySimpleList.erase(400);
 	mySimpleList.show(std::cout);
-	CQueue<int> myQueue;
-	myQueue.insert(100);
-	myQueue.insert(200);
-	myQueue.insert(300);
-	myQueue.insert(400);
-	myQueue.insert(500);
-	myQueue.show(std::cout);
+	std::cout<<mySimpleList.search(600)<<std::endl;
+	mySimpleList.clear();
 	std::cout << std::endl;
+	CStack<int> myStack;
+	myStack.insert(100);
+	myStack.insert(555);
+	myStack.insert(777);
+	myStack.insert(458);
+	myStack.insert(333);
+	myStack.insert(999);
+	myStack.insert(789);
+	std::cout<<myStack.search(999)<<std::endl;
+	myStack.show(std::cout);
+	myStack.clear();
+	myStack.show(std::cout);
+	std::cout << std::endl;
+	CQueue<int> myQueue;
+	myQueue.insert(123);
+	myQueue.insert(321);
+	myQueue.insert(546);
+	myQueue.insert(354);
+	myQueue.insert(456);
+	myQueue.insert(777);
+	myQueue.insert(453);
+	myQueue.show(std::cout);
+	myQueue.clear();
+	std::cout<<myQueue.search(222)<<std::endl;
+	myQueue.show(std::cout);
 	/*
 	 * Pero la verdadera tarea es que las siguientes de lineas de codigo
 	 * funcionen, esto ocurre cuando deseo ingresar otros tipos de datos

@@ -69,7 +69,7 @@ public:
 	}
 
 
-	bool search(T) {
+	bool search(T data) {
 		CNode<T>* p=this->proot;
 		do{
 			if(p->getData()==data){
@@ -88,7 +88,6 @@ public:
         delete temp;
         temp = this->proot;	
     }
-    //Violacion de segmento ('core'generado)-->why?
 	}
 
 	void show(std::ostream& out) {

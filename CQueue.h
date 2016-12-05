@@ -7,48 +7,64 @@
 
 #ifndef CQUEUE_H_
 #define CQUEUE_H_
-
+#include "CNode.h"
 #include "IDataStructure.h"
 
 template<class T>
 class CQueue: public IDataStructure<T> {
+protected:
+	CNode<T>*proot;
 public:
 	CQueue() {
-		CNode<T>* temp=this->proot;
-		CSimpleNode<T>* nuevoNodo= new CSimpleNode<T>(data);
-	
-		nuevoNodo->setLink(LINKS::next,NULL);
-
-	if(this->proot==NULL)
-	{
-		while(temp->getLink(LINKS::next)!=NULL)
-		{
-			temp=temp->getLink(LINKS::next);
-		}
-		nuevoNodo->setLink(LINKS::back,temp);
-		temp->setLink(LINKS::next,nuevoNodo);
-
-	}
-	else
-	{
-		this->proot=nuevoNodo;
-	}
-
+		this->proot=0;
 	}
 	~CQueue() {
 
 	}
-	void insert(T) {
-
+	void insert(T data) {
+		if(this->proot==NULL){
+			CSimpleNode<T> *aux= new CSimpleNode<T>(data);
+			this->proot=aux;
+		}
+		else{
+			CSimpleNode<T> *aux= new CSimpleNode<T>(data);
+			CNode<T>*temp=this->proot;
+			while(temp->getLink(LINKS::next)){
+				temp=temp->getLink(LINKS::next);
+			}
+			temp->setLink(LINKS::next,aux);
+		}
 	}
 	void erase(T) {
-
+	
 	}
-	bool search(T) {
-
+	bool search(T data) {
+		CNode<T>* temp=this->proot;
+		int cont=0;
+		int cont2=0;
+		while(temp){
+			if(temp->getData()==data){
+				return true;
+				cont2++;
+			}
+			temp=temp->getLink(LINKS::next);
+			cont++;
+		}
+		if(cont2==0)
+			return false;
 	}
 	void clear() {
-
+		if(this->proot==NULL){
+			std::cout<<"No data papu"<<std::endl;
+		}
+		if(this->proot==this->proot->getLink(LINKS::down)){
+			std::cout<<this->proot->getData()<<std::endl;
+		}else{
+				CNode<T> *temp;
+				temp=this->proot->getLink(LINKS::next);
+				delete this->proot;
+				this->proot=temp;
+			}
 	}
 	void show(std::ostream& out) {
 		CNode<T> * temp = this->proot;
